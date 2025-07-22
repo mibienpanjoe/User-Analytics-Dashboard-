@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive User Analytics Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp " rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Joti+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1 class="logo">DASHBOARD</h1>
+            <div class="search-bar">
+                <span class="material-symbols-sharp">search</span>
+                <input type="search" placeholder="Search">   
+            </div>
+            <div class="profile-area">
+                <div class="theme-btn">
+                    <span class="material-symbols-sharp active">sunny</span>
+                    <span class="material-symbols-sharp">dark_mode</span>
+                </div>
+                <div class="profile-1">
+                    <div class="profile-photo">
+                        <img src="images/profile.jpg" alt="">
+                    </div>
+                    <h5>mj-26</h5>
+                    <span class="material-symbols-sharp">arrow_drop_down</span>
+                </div>
+                <button id="menu-btn">
+                    <span class="material-symbols-sharp">dehaze</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <aside>
+            <button id="close-btn">
+                <span class="material-symbols-sharp">close</span>
+            </button>
+
+            <div class="sidebar">
+                 <a href="#"class="active" >
+                    <span class="material-symbols-sharp ">dashboard</span>
+                    <h4>Overview</h4>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp ">pie_chart</span>
+                    <h4>Analytics</h4>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp ">chat</span>
+                    <h4>Reports</h4>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp ">contact_support</span>
+                    <h4>Help Center</h4>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-sharp">settings</span>
+                    <h4>Settings</h4>
+                </a>
+            </div>
+
+            <div class="updates">
+                <span class="material-symbols-sharp">update</span>
+                <h4>Updates Available</h4>
+                <small>Security Updates</small> <br>
+                <small>General Updates</small>
+                <a href="#">Update Now</a>
+            </div>
+        </aside>
+        <!--END OF ASIDE-->
+
+        <section class="middle">
+            <div class="overview">
+                <h1>Overview</h1>
+                <!-- <select name="time-interval" id="time-interval">
+                    <option value="1">Jan 2025 - March 2025 
+                    </option>
+                    <option value="2">March 2025 - Jun 2025 </option>
+                    <option value="2">Jun 2025 - Aug 2025 </option>
+                </select> -->
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="header">
+                        <span class="material-symbols-sharp">group</span>
+                        <h3>Total User</h3>
+                    </div>
+                    <p>19.000</p>
+                    <p class="evolution success">+3.5%</p>
+                    <small>Compared to 18.985 last 
+                        year
+                    </small>
+                </div>
+
+                <div class="card">
+                    <div class="header">
+                        <span class="material-symbols-sharp">download_for_offline</span>
+                        <h3>Total Downloads</h3>
+                    </div>
+                    <p>1.562</p>
+                    <p class="evolution danger">-4.2%</p>
+                    <small>Compared to 1.321 last 
+                        year
+                    </small>
+                </div>
+
+                <div class="card">
+                    <div class="header">
+                        <span class="material-symbols-sharp">person</span>
+                        <h3>Total Suscriber</h3>
+                    </div>
+                    <p>4.932</p>
+                    <p class="evolution success">+10.5%</p>
+                    <small>Compared to 3.825 last 
+                        year
+                    </small>
+                </div>
+
+                <div class="card">
+                    <div class="header">
+                        <span class="material-symbols-sharp">web_traffic</span>
+                        <h3>Engagement Rate</h3>
+                    </div>
+                    <p>0.7</p>
+                    <p class="evolution danger">-3.9%</p>
+                    <small>Compared to 18.985 last 
+                        year
+                    </small>
+                </div>
+                
+            </div>
+            <!--END OF CARDS-->
+            <div class="overview">
+                <h3>Time interval</h3>
+                <select id="time-filter" onchange="updateCharts()">
+                    <option value="7">Last 7 Days</option>
+                    <option value="30">Last 30 Days</option>
+                </select>
+            </div>
+            <div class="charts">
+                <canvas id="lineChart"></canvas>
+                <canvas id="barChart"></canvas>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </section>
+        <!--END OF MIDDLE-->
+
+        <section class="right">
+            <div class="users">
+                <div class="header">
+                    <h1>Online Users</h1>
+                    <a href="#">See more <span class="material-symbols-sharp">more_horiz</span></a>
+                </div>
+
+                <div class="user">
+                    <div class="pp">
+                        <img src="images/user-1.jpg" alt="">
+                        <p>Leonardo Dicaprio</p>
+                    </div>
+                    <div class="statut"></div>
+                </div>
+
+                <div class="user">
+                    <div class="pp">
+                        <img src="images/user-2.jpg" alt="">
+                        <p>Billie Eilish</p>
+                    </div>
+                    <div class="statut"></div>
+                </div>
+
+                <div class="user">
+                    <div class="pp">
+                        <img src="images/user-3.jpg" alt="">
+                        <p>Beckham Black</p>
+                    </div>
+                    <div class="statut"></div>
+                </div>
+
+                <div class="user">
+                    <div class="pp">
+                        <img src="images/user-4.jpg" alt="">
+                        <p>Gena Ortega</p>
+                    </div>
+                    <div class="statut"></div>
+                </div>
+
+                <div class="user">
+                    <div class="pp">
+                        <img src="images/user-5.jpg" alt="">
+                        <p>Will Smith</p>
+                    </div>
+                    <div class="statut"></div>
+                </div>
+
+                <div class="user">
+                    <div class="pp">
+                        <img src="images/user-6.jpg" alt="">
+                        <p>Damson Idriss</p>
+                    </div>
+                    <div class="statut"></div>
+                </div>
+
+                <div class="user">
+                    <div class="pp">
+                        <img src="images/user-7.jpg" alt="">
+                        <p>Raniya</p>
+                    </div>
+                    <div class="statut"></div>
+                </div>
+            </div>
+        <!--END OF USERS-->
+
+        </section>
+        <!--END OF RIGHT-->
+
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>
