@@ -141,6 +141,12 @@ function drawPieChart(data) {
     });
 }
 
+function updateSummaryPanel(data) {
+    const totalLogins = data.reduce((sum, d) => sum + d.logins, 0);
+    const avgEngagement = data.length ? (data.reduce((sum, d) => sum + d.engagement, 0) / data.length).toFixed(2) : 0;
+    document.getElementById('total-logins').textContent = totalLogins;
+    document.getElementById('avg-engagement').textContent = avgEngagement;
+}
 
 function updateCharts() {
     const days = parseInt(document.getElementById('time-filter').value);
@@ -167,26 +173,27 @@ async function initialize() {
     document.getElementById('time-filter').addEventListener('change', updateCharts);
 }
 
-    // Aside display for responsiveness
-    const menu = document.getElementById('menu-btn');
-    const aside = document.querySelector('aside');
-    const close = document.getElementById('close-btn');
+//Aside display for responsiveness
 
-    menu.addEventListener("click", () => {
-        aside.classList.add("view");
-    });
+const menu=document.getElementById('menu-btn');
+const aside=document.querySelector('aside');
+const close=document.getElementById('close-btn');
 
-    close.addEventListener("click", () => {
-        aside.classList.remove('view');
-    });
+menu.addEventListener("click",()=>{
+    aside.classList.add("view")
+})
 
-    // Change theme
-    const themeBtn = document.querySelector(".theme-btn");
-    themeBtn.addEventListener("click", () => {
-        document.querySelector('body').classList.toggle('dark-theme');
-        themeBtn.querySelector('span:first-child').classList.toggle('active');
-        themeBtn.querySelector('span:last-child').classList.toggle('active');
-    });
+close.addEventListener("click",()=>{
+    aside.classList.remove('view')
+})
 
 
-document.addEventListener('DOMContentLoaded', initialize);
+// CHANGE THEME
+
+const themeBtn = document.querySelector(".theme-btn");
+
+themeBtn.addEventListener("click", () => {
+    document.querySelector('body').classList.toggle('dark-theme');
+    themeBtn.querySelector('span:first-child').classList.toggle('active');
+    themeBtn.querySelector('span:last-child').classList.toggle('active');
+})
