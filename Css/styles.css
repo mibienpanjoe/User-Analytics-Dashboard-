@@ -316,8 +316,13 @@ main section.middle .cards .card{
     flex-direction: column;
     gap: 0.5rem;
     color: var(--color-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
+main section.middle .cards .card:hover{
+    transform:translateY(-3px);
+}
 main section.middle .cards .card .header{
     display: flex;
     align-items: center;
