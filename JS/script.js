@@ -172,9 +172,6 @@ async function initialize() {
     drawPieChart(processedData);
     document.getElementById('time-filter').addEventListener('change', updateCharts);
 }
-document.addEventListener('DOMContentLoaded', initialize);
-
-
 
 //Aside display for responsiveness
 
