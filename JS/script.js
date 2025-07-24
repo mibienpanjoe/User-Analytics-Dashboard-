@@ -141,12 +141,6 @@ function drawPieChart(data) {
     });
 }
 
-function updateSummaryPanel(data) {
-    const totalLogins = data.reduce((sum, d) => sum + d.logins, 0);
-    const avgEngagement = data.length ? (data.reduce((sum, d) => sum + d.engagement, 0) / data.length).toFixed(2) : 0;
-    document.getElementById('total-logins').textContent = totalLogins;
-    document.getElementById('avg-engagement').textContent = avgEngagement;
-}
 
 function updateCharts() {
     const days = parseInt(document.getElementById('time-filter').value);
@@ -173,27 +167,26 @@ async function initialize() {
     document.getElementById('time-filter').addEventListener('change', updateCharts);
 }
 
-//Aside display for responsiveness
+    // Aside display for responsiveness
+    const menu = document.getElementById('menu-btn');
+    const aside = document.querySelector('aside');
+    const close = document.getElementById('close-btn');
 
-const menu=document.getElementById('menu-btn');
-const aside=document.querySelector('aside');
-const close=document.getElementById('close-btn');
+    menu.addEventListener("click", () => {
+        aside.classList.add("view");
+    });
 
-menu.addEventListener("click",()=>{
-    aside.classList.add("view")
-})
+    close.addEventListener("click", () => {
+        aside.classList.remove('view');
+    });
 
-close.addEventListener("click",()=>{
-    aside.classList.remove('view')
-})
+    // Change theme
+    const themeBtn = document.querySelector(".theme-btn");
+    themeBtn.addEventListener("click", () => {
+        document.querySelector('body').classList.toggle('dark-theme');
+        themeBtn.querySelector('span:first-child').classList.toggle('active');
+        themeBtn.querySelector('span:last-child').classList.toggle('active');
+    });
 
 
-// CHANGE THEME
-
-const themeBtn = document.querySelector(".theme-btn");
-
-themeBtn.addEventListener("click", () => {
-    document.querySelector('body').classList.toggle('dark-theme');
-    themeBtn.querySelector('span:first-child').classList.toggle('active');
-    themeBtn.querySelector('span:last-child').classList.toggle('active');
-})
+document.addEventListener('DOMContentLoaded', initialize);
